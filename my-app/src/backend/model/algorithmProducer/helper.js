@@ -4,13 +4,16 @@
  * Item value: [0, 100]
  * @returns {Array}
  */
-export function generateRandomArray() {
-  const size = randomInteger(10, 20);
+export function generateRandomArray(size = randomInteger(10, 20)) {
   const arr = new Array(size);
   for (let i = 0; i < size; i++) {
     arr[i] = randomInteger(0, 100);
   }
   return arr;
+}
+
+export function generateRandomSortedArray() {
+  return generateRandomArray().sort((a, b) => a - b);
 }
 
 /**
