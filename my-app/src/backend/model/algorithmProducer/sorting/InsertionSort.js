@@ -9,7 +9,7 @@ class InsertionSort {
 
   /**
    * Run insertion sort on the copy of #arr
-   * @returns the sorted array
+   * @returns {Array}
    */
   run() {
     const sortedArr = [...this.#arr];
@@ -27,7 +27,7 @@ class InsertionSort {
   }
 }
 
-const arr = generateRandomArray(20);
+const arr = generateRandomArray();
 const test = new InsertionSort(arr);
 console.log(arr);
 console.log(test.run());
