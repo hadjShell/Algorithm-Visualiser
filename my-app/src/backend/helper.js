@@ -1,4 +1,4 @@
-import Node from "./searching/Node.js";
+import Node from "./algorithmExecutor/searching/Node.js";
 
 /**
  * Generate a random size array by default with random integer values

@@ -43,7 +43,6 @@ export default function SelSortItem({
     >
       <rect
         height={(BASE_HEIGHT + MAX_HEIGHT * (value / maxValue)).toFixed(2)}
-        // height={`${BASE_HEIGHT + MAX_HEIGHT}`}
         width={BAR_WIDTH}
         style={{ fill: color }}
       ></rect>
