@@ -11,7 +11,7 @@ export default function MainNav() {
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img src="/logo.png" className="h-8" alt="Logo" />
-            <span className="font-['Biryani'] tracking-wide pt-[6px] self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="font-['Biryani'] tracking-wide pt-[6px] self-center text-2xl font-bold whitespace-nowrap dark:text-white">
               Algorithm Visualiser
             </span>
           </Link>

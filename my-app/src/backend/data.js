@@ -1,21 +1,21 @@
 // TODO
 export const DUMMY_SS = {
   originalArray: [29, 10, 14, 37, 14],
-  max: 15,
+  maxValue: 37,
   pseudoCode: ["", "", "", ""],
   states: [
     {
-      checking: null,
-      currentMin: null,
-      sorted: null,
-      swap: null,
-      step: null,
+      checking: NaN,
+      currentMin: NaN,
+      sorted: [],
+      swapping: [],
+      step: NaN,
     },
     {
-      checking: null,
+      checking: NaN,
       currentMin: 0,
-      sorted: null,
-      swap: null,
+      sorted: [],
+      swapping: [],
       step: 0,
     },
   ],

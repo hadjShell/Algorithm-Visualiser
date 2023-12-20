@@ -4,12 +4,16 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/Root.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import SelectionSortPage from "./pages/SelectionSortPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    children: [{ index: true, element: <HomePage /> }],
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "sorting/selection-sort", element: <SelectionSortPage /> },
+    ],
   },
 ]);
 
