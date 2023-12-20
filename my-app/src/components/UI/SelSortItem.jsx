@@ -29,10 +29,11 @@ export default function SelSortItem({
 
   useEffect(() => {
     if (isSwapping) {
-      const index = state.swapping.filter(index => index !== initialIndex)[0];
-      setCurrentIndex(index);
+      setCurrentIndex(
+        prev => state.swapping.filter(index => index !== prev)[0]
+      );
     }
-  }, [isSwapping, state.swapping, initialIndex]);
+  }, [isSwapping, state.swapping]);
 
   return (
     <motion.g
