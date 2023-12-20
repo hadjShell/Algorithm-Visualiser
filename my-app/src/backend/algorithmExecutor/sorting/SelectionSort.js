@@ -6,7 +6,7 @@ class SelectionSort {
   #states = [];
 
   constructor() {
-    this._updateStates(createAlgorithmState());
+    this._updateStates(NaN, NaN, [], NaN);
   }
 
   /**
@@ -14,24 +14,24 @@ class SelectionSort {
    * @returns {Array} sorted array
    */
   run() {
-    const _ = undefined;
     const sortedArr = [...this.#arr];
 
     let i, j, min;
     for (i = 0; i < sortedArr.length; i++) {
       min = i;
-      this._updateStates(createAlgorithmState(_, min, this.#sorted, _, 0));
+      this._updateStates(NaN, min, [], 0);
       for (j = i + 1; j < sortedArr.length; j++) {
-        this._updateStates(createAlgorithmState(j, min, this.#sorted, _, 1));
+        this._updateStates(j, min, [], 1);
         if (sortedArr[j] < sortedArr[min]) {
           min = j;
-          this._updateStates(createAlgorithmState(j, min, this.#sorted, _, 2));
+          // BUG related to restrict mode
+          this._updateStates(min, min, [], 2);
         }
       }
       [sortedArr[i], sortedArr[min]] = [sortedArr[min], sortedArr[i]];
-      this._updateStates(createAlgorithmState(_, _, this.#sorted, [min, i], 3));
+      this._updateStates(NaN, NaN, [min, i], 3);
       this.#sorted.push(i);
-      this._updateStates(createAlgorithmState(_, _, this.#sorted, _, 3));
+      this._updateStates(NaN, NaN, [], 3);
     }
 
     return sortedArr;
@@ -75,10 +75,21 @@ class SelectionSort {
 
   /**
    * Update state to states
-   * @param {Object} state algorithm execution state
+   * @param {Integer} checking index of current checking element
+   * @param {Integer} currentMin index of current min element
+   * @param {Array of Integer} swapping indexs of current swapping elements, size of 2
+   * @param {Integer} step index of current executed pseudo-code step
    */
-  _updateStates(state) {
-    this.#states.push(state);
+  _updateStates(checking, currentMin, swapping, step) {
+    this.#states.push(
+      createAlgorithmState(
+        checking,
+        currentMin,
+        [...this.#sorted],
+        swapping,
+        step
+      )
+    );
   }
 }
 

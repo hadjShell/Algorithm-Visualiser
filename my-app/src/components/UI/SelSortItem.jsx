@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { WIDTH_OF_VIZ_GRAPH } from "../VisualContainer";
 
-const BASE_HEIGHT = 20,
+const BASE_HEIGHT = 30,
   MAX_HEIGHT = 300,
   BAR_WIDTH = 45;
 export default function SelSortItem({
@@ -29,9 +29,10 @@ export default function SelSortItem({
 
   useEffect(() => {
     if (isSwapping) {
-      setCurrentIndex(
-        prev => state.swapping.filter(index => index !== prev)[0]
-      );
+      setCurrentIndex(prev => {
+        const swap = state.swapping.filter(index => index !== prev);
+        return swap.length === 1 ? swap[0] : prev;
+      });
     }
   }, [isSwapping, state.swapping]);
 
@@ -48,7 +49,7 @@ export default function SelSortItem({
       ></rect>
       <text
         x="11"
-        y="-15"
+        y="-10"
         style={{ fontSize: "20px", transform: "rotateX(180deg)" }}
       >
         {value}

@@ -1,4 +1,4 @@
-import selectionSort from "../../algorithmExecutor/sorting/SelectionSort";
+import selectionSort from "../../algorithmExecutor/sorting/SelectionSort.js";
 
 /**
  * Create selection sort algorithm execution state
@@ -10,11 +10,11 @@ import selectionSort from "../../algorithmExecutor/sorting/SelectionSort";
  * @returns {Object} algorithm execution state
  */
 export function createAlgorithmState(
-  checking = NaN,
-  currentMin = NaN,
-  sorted = [],
-  swapping = [],
-  step = NaN
+  checking,
+  currentMin,
+  sorted,
+  swapping,
+  step
 ) {
   return {
     checking,
@@ -36,8 +36,8 @@ export function createAnimationState(originalArray) {
   selectionSort.run();
 
   return {
-    originalArray,
-    maxValue: selectionSort.maxValue,
+    originalArray: [...originalArray],
+    maxValue: selectionSort.maxValue(),
     pseudoCode: [...selectionSort.pseudoCode()],
     states: [...selectionSort.states],
   };

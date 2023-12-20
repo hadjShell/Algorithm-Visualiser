@@ -7,7 +7,7 @@ import Node from "./algorithmExecutor/searching/Node.js";
  * @param {Integer} size of generated array
  * @returns {Array}
  */
-export function generateRandomArray(size = randomInteger(10, 20)) {
+export function generateRandomArray(size = randomInteger(10, 15)) {
   const arr = new Array(size);
   for (let i = 0; i < size; i++) {
     arr[i] = randomInteger(0, 100);
