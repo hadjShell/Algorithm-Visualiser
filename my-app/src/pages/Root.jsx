@@ -6,10 +6,7 @@ export default function HomePage() {
   return (
     <>
       <MainNav />
-      <div
-        className="min-h-[85vh] px-16 grid grid-cols-1 place-content-center"
-        id="main-container"
-      >
+      <div className="min-h-[85vh] px-16" id="main-container">
         <Outlet />
       </div>
       <Footer />
