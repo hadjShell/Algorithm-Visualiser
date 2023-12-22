@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { WIDTH_OF_VIZ_GRAPH } from "../VisualContainer";
 
 const BASE_HEIGHT = 30,
@@ -7,12 +7,14 @@ const BASE_HEIGHT = 30,
   BAR_WIDTH = 45;
 export default function SelSortItem({
   state,
-  initialIndex,
+  originalIndex,
   value,
   maxValue,
   size,
+  ...props
 }) {
-  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const currentIndex = state.currentIndex[originalIndex];
+  //const [currentIndex, setCurrentIndex] = useState(originalIndex);
 
   const startPos = (WIDTH_OF_VIZ_GRAPH - BAR_WIDTH * size) / 2 - 15;
 
@@ -27,20 +29,21 @@ export default function SelSortItem({
   if (isSwapping) color = "rgb(132, 94, 247)";
   if (isSorted) color = "rgb(148, 216, 45)";
 
-  useEffect(() => {
-    if (isSwapping) {
-      setCurrentIndex(prev => {
-        const swap = state.swapping.filter(index => index !== prev);
-        return swap.length === 1 ? swap[0] : prev;
-      });
-    }
-  }, [isSwapping, state.swapping]);
+  // useEffect(() => {
+  //   if (isSwapping) {
+  //     setCurrentIndex(prev => {
+  //       const swap = state.swapping.filter(index => index !== prev);
+  //       return swap.length === 1 ? swap[0] : prev;
+  //     });
+  //   }
+  // }, [isSwapping, state.swapping]);
 
   return (
     <motion.g
-      initial={{ x: initialIndex * 50 + startPos, y: 300 }}
+      initial={{ x: originalIndex * 50 + startPos, y: 300 }}
       animate={{ x: currentIndex * 50 + startPos, y: 0 }}
       transition={{ type: "tween", duration: 0.4 }}
+      {...props}
     >
       <rect
         height={(BASE_HEIGHT + MAX_HEIGHT * (value / maxValue)).toFixed(2)}

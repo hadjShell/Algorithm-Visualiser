@@ -1,5 +1,5 @@
 import playIcon from "../assets/play-button.png";
-import pauseIcon from "../assets/pause.png";
+//import pauseIcon from "../assets/pause.png";
 import forwardIcon from "../assets/forward.png";
 import backwardIcon from "../assets/rewind.png";
 import resetIcon from "../assets/reset.png";
@@ -14,6 +14,12 @@ export default function ControlPanel({
   }
   function handleBack() {
     if (indexOfStates > 0) setIndexOfStates(prev => prev - 1);
+  }
+  function handleDragProgress(e) {
+    setIndexOfStates(e.target.value);
+  }
+  function handleReset() {
+    setIndexOfStates(0);
   }
 
   return (
@@ -59,22 +65,22 @@ export default function ControlPanel({
         <button onClick={handleNext}>
           <img src={forwardIcon} alt="forward" height="28" width="28" />
         </button>
-        <button>
+        <button onClick={handleReset}>
           <img src={resetIcon} alt="reset" height="28" width="28" />
         </button>
       </div>
 
       <div className="basis-4/12 pt-3">
-        <form>
-          <input
-            className="w-[80%]"
-            type="range"
-            id="progress"
-            name="progress"
-            min="0"
-            max="50"
-          />
-        </form>
+        <input
+          className="w-[80%]"
+          type="range"
+          id="progress"
+          name="progress"
+          min="0"
+          max={size - 1}
+          value={indexOfStates}
+          onChange={handleDragProgress}
+        />
       </div>
     </section>
   );

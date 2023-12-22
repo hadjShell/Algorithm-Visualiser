@@ -6,6 +6,7 @@ import selectionSort from "../../algorithmExecutor/sorting/SelectionSort.js";
  * @param {Integer} currentMin index of current min element
  * @param {Array of Integer} sorted array of sorted indexs
  * @param {Array of Integer} swapping indexs of current swapping elements, size of 2
+ * @param {Array of Integer} currentIndex current index of the original element
  * @param {Integer} step index of current executed pseudo-code step
  * @returns {Object} algorithm execution state
  */
@@ -14,6 +15,7 @@ export function createAlgorithmState(
   currentMin,
   sorted,
   swapping,
+  currentIndex,
   step
 ) {
   return {
@@ -21,6 +23,7 @@ export function createAlgorithmState(
     currentMin,
     sorted: [...sorted],
     swapping: [...swapping],
+    currentIndex: [...currentIndex],
     step,
   };
 }

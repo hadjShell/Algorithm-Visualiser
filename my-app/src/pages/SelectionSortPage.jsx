@@ -8,9 +8,13 @@ import { generateRandomArray } from "../backend/helper.js";
 
 export default function SelectionSortPage() {
   const [indexOfStates, setIndexOfStates] = useState(0);
+  // One way to implement reset functon, but cannot used to imlement dragging progress feature
+  // Refine state object structure instead
+  // const [resetKey, setResetKey] = useState(0);
   const originalArray = useRef(generateRandomArray()).current;
   const states = useRef(createAnimationState(originalArray)).current;
   const size = states.originalArray.length;
+  console.log(states);
 
   return (
     <>
@@ -20,11 +24,12 @@ export default function SelectionSortPage() {
         size={states.states.length}
       />
 
+      {/* BUG */}
       <VisualContainer>
-        {states.originalArray.map((value, i) => (
+        {originalArray.map((value, i) => (
           <SelSortItem
             key={i}
-            initialIndex={i}
+            originalIndex={i}
             value={value}
             maxValue={states.maxValue}
             size={size}

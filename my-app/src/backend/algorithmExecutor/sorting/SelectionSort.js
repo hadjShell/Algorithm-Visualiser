@@ -3,11 +3,10 @@ import { createAlgorithmState } from "../../state/sorting/SelectionSortState.js"
 class SelectionSort {
   #arr = [];
   #sorted = [];
+  #currentIndex = [];
   #states = [];
 
-  constructor() {
-    this._updateStates(NaN, NaN, [], NaN);
-  }
+  constructor() {}
 
   /**
    * Run selection sort and produce states
@@ -29,6 +28,10 @@ class SelectionSort {
         }
       }
       [sortedArr[i], sortedArr[min]] = [sortedArr[min], sortedArr[i]];
+      [this.#currentIndex[i], this.#currentIndex[min]] = [
+        this.#currentIndex[min],
+        this.#currentIndex[i],
+      ];
       this._updateStates(NaN, NaN, [min, i], 3);
       this.#sorted.push(i);
       this._updateStates(NaN, NaN, [], 3);
@@ -39,6 +42,9 @@ class SelectionSort {
 
   set arr(arr) {
     this.#arr = [...arr];
+    this.#sorted = [];
+    this.#currentIndex = this.#arr.map((_, i) => i);
+    this._updateStates(NaN, NaN, [], NaN);
   }
 
   get arr() {
@@ -87,6 +93,7 @@ class SelectionSort {
         currentMin,
         [...this.#sorted],
         swapping,
+        [...this.#currentIndex],
         step
       )
     );
