@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { WIDTH_OF_VIZ_GRAPH } from "../VisualContainer";
+import { WIDTH_OF_VIZ_GRAPH } from "./VisualContainer";
 
 const BASE_HEIGHT = 30,
   MAX_HEIGHT = 300,

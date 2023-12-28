@@ -5,7 +5,7 @@ export default function VisualContainer({ children }) {
     <section id="viz" className="w-full flex flex-row justify-center">
       <svg
         id="viz-graph"
-        className={`h-[400px] w-[1000px]`}
+        className={`h-[380px] w-[1000px]`}
         style={{ transform: "rotateX(180deg)" }}
       >
         {children}

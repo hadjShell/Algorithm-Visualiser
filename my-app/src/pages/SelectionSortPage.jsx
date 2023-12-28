@@ -1,6 +1,7 @@
 import ControlPanel from "../components/ControlPanel";
 import VisualContainer from "../components/VisualContainer";
-import SelSortItem from "../components/UI/SelSortItem";
+import SelSortItem from "../components/SelSortItem";
+import PseudoCode from "../components/PseudoCode";
 
 import { useState } from "react";
 import { createAnimationState } from "../backend/state/sorting/SelectionSortState";
@@ -29,7 +30,7 @@ export default function SelectionSortPage() {
   }
 
   return (
-    <div>
+    <>
       <ControlPanel
         key={key}
         indexOfStates={indexOfStates}
@@ -52,6 +53,11 @@ export default function SelectionSortPage() {
           />
         ))}
       </VisualContainer>
-    </div>
+
+      <PseudoCode
+        pseudoCode={state.pseudoCode}
+        step={state.states[indexOfStates].step}
+      ></PseudoCode>
+    </>
   );
 }

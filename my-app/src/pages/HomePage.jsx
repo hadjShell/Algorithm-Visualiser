@@ -1,4 +1,4 @@
-import Card from "../components/Card";
+import Card from "../components/UI/Card";
 import sortingImg from "../assets/sort_records.png";
 import searchingImg from "../assets/search_text.png";
 import recursionImg from "../assets/recursion_spiral_stairs.png";
