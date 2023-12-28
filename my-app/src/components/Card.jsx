@@ -5,7 +5,7 @@ export default function Card({ img, name, to }) {
   return (
     <div className="flex justify-center">
       <motion.div
-        className="w-full max-w-md sm:max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >

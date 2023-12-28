@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-// import { useState, useEffect } from "react";
 import { WIDTH_OF_VIZ_GRAPH } from "../VisualContainer";
 
 const BASE_HEIGHT = 30,
@@ -14,7 +13,6 @@ export default function SelSortItem({
   ...props
 }) {
   const currentIndex = state.currentIndex[originalIndex];
-  //const [currentIndex, setCurrentIndex] = useState(originalIndex);
 
   const startPos = (WIDTH_OF_VIZ_GRAPH - BAR_WIDTH * size) / 2 - 15;
 
@@ -28,15 +26,6 @@ export default function SelSortItem({
   if (isCurrentMin) color = "rgb(250, 82, 82)";
   if (isSwapping) color = "rgb(132, 94, 247)";
   if (isSorted) color = "rgb(148, 216, 45)";
-
-  // useEffect(() => {
-  //   if (isSwapping) {
-  //     setCurrentIndex(prev => {
-  //       const swap = state.swapping.filter(index => index !== prev);
-  //       return swap.length === 1 ? swap[0] : prev;
-  //     });
-  //   }
-  // }, [isSwapping, state.swapping]);
 
   return (
     <motion.g

@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <>
       <section id="jumptron">
-        <div className="py-16 pt-24 px-4 mx-auto max-w-screen-xl text-center">
+        <div className="py-12 pt-20 px-4 mx-auto max-w-screen-xl text-center">
           <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl lg:text-7xl dark:text-white">
             Algorithm Visualiser
           </h1>
@@ -19,7 +19,7 @@ export default function HomePage() {
 
       <section
         id="cards"
-        className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 content-center"
+        className="px-16 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 content-center"
       >
         <Card img={searchingImg} name="Searching Algorithms" to=""></Card>
         <Card

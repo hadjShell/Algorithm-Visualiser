@@ -28,9 +28,12 @@ class SelectionSort {
         }
       }
       [sortedArr[i], sortedArr[min]] = [sortedArr[min], sortedArr[i]];
-      [this.#currentIndex[i], this.#currentIndex[min]] = [
-        this.#currentIndex[min],
-        this.#currentIndex[i],
+      // Build currentIndex
+      const curI = this.#currentIndex.findIndex(e => e === i);
+      const curMin = this.#currentIndex.findIndex(e => e === min);
+      [this.#currentIndex[curI], this.#currentIndex[curMin]] = [
+        this.#currentIndex[curMin],
+        this.#currentIndex[curI],
       ];
       this._updateStates(NaN, NaN, [min, i], 3);
       this.#sorted.push(i);
@@ -91,8 +94,8 @@ class SelectionSort {
       createAlgorithmState(
         checking,
         currentMin,
-        [...this.#sorted],
         swapping,
+        [...this.#sorted],
         [...this.#currentIndex],
         step
       )

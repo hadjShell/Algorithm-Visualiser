@@ -23,8 +23,8 @@ export default function ControlPanel({
   }
 
   return (
-    <section id="control-panel" className="py-12 pl-28 flex flex-row">
-      <div className="basis-6/12 grid grid-flow-col gap-4 justify-stretch">
+    <section id="control-panel" className="pt-12 px-20 pl-24 flex flex-row">
+      <div className="basis-6/12 pr-8 grid grid-flow-col gap-4 justify-stretch">
         <button
           type="button"
           className="text-gray-800 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
@@ -55,7 +55,7 @@ export default function ControlPanel({
         </select>
       </div>
 
-      <div id="audio" className="basis-2/12 px-4 flex flex-row justify-evenly">
+      <div id="audio" className="basis-2/12 px-4 flex flex-row justify-between">
         <button onClick={handleBack}>
           <img src={backwardIcon} alt="backward" height="28" width="28" />
         </button>
@@ -70,7 +70,7 @@ export default function ControlPanel({
         </button>
       </div>
 
-      <div className="basis-4/12 pt-3">
+      <div className="basis-4/12 flex justify-center">
         <input
           className="w-[80%]"
           type="range"

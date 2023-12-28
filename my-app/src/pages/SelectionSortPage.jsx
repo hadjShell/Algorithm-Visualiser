@@ -14,6 +14,7 @@ export default function SelectionSortPage() {
   const originalArray = useRef(generateRandomArray()).current;
   const states = useRef(createAnimationState(originalArray)).current;
   const size = states.originalArray.length;
+  console.log(originalArray);
   console.log(states);
 
   return (
@@ -24,7 +25,6 @@ export default function SelectionSortPage() {
         size={states.states.length}
       />
 
-      {/* BUG */}
       <VisualContainer>
         {originalArray.map((value, i) => (
           <SelSortItem

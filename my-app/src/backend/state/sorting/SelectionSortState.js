@@ -13,16 +13,16 @@ import selectionSort from "../../algorithmExecutor/sorting/SelectionSort.js";
 export function createAlgorithmState(
   checking,
   currentMin,
-  sorted,
   swapping,
+  sorted,
   currentIndex,
   step
 ) {
   return {
     checking,
     currentMin,
-    sorted: [...sorted],
     swapping: [...swapping],
+    sorted: [...sorted],
     currentIndex: [...currentIndex],
     step,
   };
