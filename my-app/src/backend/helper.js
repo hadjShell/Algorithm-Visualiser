@@ -14,9 +14,11 @@ export function generateRandomArray(size = randomInteger(10, 15)) {
   }
   return arr;
 }
-
-export function generateRandomSortedArray() {
+export function generateAscendingArray() {
   return generateRandomArray().sort((a, b) => a - b);
+}
+export function generateDescendingArray() {
+  return generateRandomArray().sort((a, b) => b - a);
 }
 
 /**

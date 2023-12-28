@@ -2,41 +2,56 @@ import ControlPanel from "../components/ControlPanel";
 import VisualContainer from "../components/VisualContainer";
 import SelSortItem from "../components/UI/SelSortItem";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { createAnimationState } from "../backend/state/sorting/SelectionSortState";
-import { generateRandomArray } from "../backend/helper.js";
 
 export default function SelectionSortPage() {
   const [indexOfStates, setIndexOfStates] = useState(0);
-  // One way to implement reset functon, but cannot used to imlement dragging progress feature
-  // Refine state object structure instead
-  // const [resetKey, setResetKey] = useState(0);
-  const originalArray = useRef(generateRandomArray()).current;
-  const states = useRef(createAnimationState(originalArray)).current;
-  const size = states.originalArray.length;
-  console.log(originalArray);
-  console.log(states);
+  const [state, setState] = useState(createAnimationState());
+  // used for resetting control panel
+  const [key, setKey] = useState(0);
+
+  function handleRandom() {
+    setState(createAnimationState("RANDOM"));
+    setIndexOfStates(0);
+    setKey(prev => prev + 1);
+  }
+
+  function handleAscending() {
+    setState(createAnimationState("ASCENDING"));
+    setIndexOfStates(0);
+    setKey(prev => prev + 1);
+  }
+  function handleDescending() {
+    setState(createAnimationState("DESCENDING"));
+    setIndexOfStates(0);
+    setKey(prev => prev + 1);
+  }
 
   return (
-    <>
+    <div>
       <ControlPanel
+        key={key}
         indexOfStates={indexOfStates}
         setIndexOfStates={setIndexOfStates}
-        size={states.states.length}
+        size={state.states.length}
+        handleRandom={handleRandom}
+        handleAscending={handleAscending}
+        handleDescending={handleDescending}
       />
 
       <VisualContainer>
-        {originalArray.map((value, i) => (
+        {state.originalArray.map((value, i) => (
           <SelSortItem
-            key={i}
+            key={state.key[i]}
             originalIndex={i}
             value={value}
-            maxValue={states.maxValue}
-            size={size}
-            state={states.states[indexOfStates]}
+            maxValue={state.maxValue}
+            size={state.originalArray.length}
+            state={state.states[indexOfStates]}
           />
         ))}
       </VisualContainer>
-    </>
+    </div>
   );
 }

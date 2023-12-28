@@ -43,10 +43,12 @@ class SelectionSort {
     return sortedArr;
   }
 
+  // reset and then set arr
   set arr(arr) {
     this.#arr = [...arr];
     this.#sorted = [];
     this.#currentIndex = this.#arr.map((_, i) => i);
+    this.#states = [];
     this._updateStates(NaN, NaN, [], NaN);
   }
 

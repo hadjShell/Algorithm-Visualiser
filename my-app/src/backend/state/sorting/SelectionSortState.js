@@ -1,4 +1,9 @@
 import selectionSort from "../../algorithmExecutor/sorting/SelectionSort.js";
+import {
+  generateRandomArray,
+  generateAscendingArray,
+  generateDescendingArray,
+} from "../../helper.js";
 
 /**
  * Create selection sort algorithm execution state
@@ -31,15 +36,29 @@ export function createAlgorithmState(
 /**
  * Create selection sort animation state
  * API exposed to the front end
- * @param {Array of Integer} originalArray
+ * @param {String} action
  * @returns animation state
  */
-export function createAnimationState(originalArray) {
-  selectionSort.arr = [...originalArray];
+export function createAnimationState(action = "DEFAULT") {
+  let arr;
+  switch (action) {
+    case "ASCENDING":
+      arr = generateAscendingArray();
+      break;
+    case "DESCENDING":
+      arr = generateDescendingArray();
+      break;
+    case "RANDOM":
+    default:
+      arr = generateRandomArray();
+  }
+
+  selectionSort.arr = [...arr];
   selectionSort.run();
 
   return {
-    originalArray: [...originalArray],
+    originalArray: [...arr],
+    key: arr.map(() => crypto.randomUUID()),
     maxValue: selectionSort.maxValue(),
     pseudoCode: [...selectionSort.pseudoCode()],
     states: [...selectionSort.states],
