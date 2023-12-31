@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/Root.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import SelectionSortPage from "./pages/SelectionSortPage.jsx";
+import InsertionSortPage from "./pages/InsertionSortPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "sorting/selection-sort", element: <SelectionSortPage /> },
+      { path: "sorting/insertion-sort", element: <InsertionSortPage /> },
     ],
   },
 ]);

@@ -7,18 +7,30 @@ import Node from "./algorithmExecutor/searching/Node.js";
  * @param {Integer} size of generated array
  * @returns {Array}
  */
-export function generateRandomArray(size = randomInteger(10, 15)) {
+function generateRandomArray(size = randomInteger(10, 15)) {
   const arr = new Array(size);
   for (let i = 0; i < size; i++) {
     arr[i] = randomInteger(0, 100);
   }
   return arr;
 }
-export function generateAscendingArray() {
+function generateAscendingArray() {
   return generateRandomArray().sort((a, b) => a - b);
 }
-export function generateDescendingArray() {
+function generateDescendingArray() {
   return generateRandomArray().sort((a, b) => b - a);
+}
+
+export function generateArray(action = "DEFAULT") {
+  switch (action) {
+    case "ASCENDING":
+      return generateAscendingArray();
+    case "DESCENDING":
+      return generateDescendingArray();
+    case "RANDOM":
+    default:
+      return generateRandomArray();
+  }
 }
 
 /**

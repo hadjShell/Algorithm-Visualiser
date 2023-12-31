@@ -1,19 +1,19 @@
-import selectionSort from "../../algorithmExecutor/sorting/SelectionSort.js";
+import insertionSort from "../../algorithmExecutor/sorting/InsertionSort.js";
 import { generateArray } from "../../helper.js";
 
 /**
- * Create selection sort algorithm execution state
+ *
  * @param {Integer} checking index of current checking element
- * @param {Integer} currentMin index of current min element
+ * @param {Integer} extracting index of current extracting element
  * @param {Array of Integer} swapping indexs of current swapping elements, size of 2
  * @param {Array of Integer} sorted array of sorted indexs
  * @param {Array of Integer} currentIndex current index of the original element
  * @param {Integer} step index of current executed pseudo-code step
- * @returns {Object} algorithm execution state
+ * @returns
  */
 export function createAlgorithmState(
   checking,
-  currentMin,
+  extracting,
   swapping,
   sorted,
   currentIndex,
@@ -21,7 +21,7 @@ export function createAlgorithmState(
 ) {
   return {
     checking,
-    currentMin,
+    extracting,
     swapping: [...swapping],
     sorted: [...sorted],
     currentIndex: [...currentIndex],
@@ -30,7 +30,7 @@ export function createAlgorithmState(
 }
 
 /**
- * Create selection sort animation state
+ * Create insertion sort animation state
  * API exposed to the front end
  * @param {String} action
  * @returns animation state
@@ -38,14 +38,14 @@ export function createAlgorithmState(
 export function createAnimationState(action = "DEFAULT") {
   const arr = generateArray(action);
 
-  selectionSort.arr = [...arr];
-  selectionSort.run();
+  insertionSort.arr = [...arr];
+  insertionSort.run();
 
   return {
     originalArray: [...arr],
     key: arr.map(() => crypto.randomUUID()),
-    maxValue: selectionSort.maxValue(),
-    pseudoCode: [...selectionSort.pseudoCode()],
-    states: [...selectionSort.states],
+    maxValue: insertionSort.maxValue(),
+    pseudoCode: [...insertionSort.pseudoCode()],
+    states: [...insertionSort.states],
   };
 }
