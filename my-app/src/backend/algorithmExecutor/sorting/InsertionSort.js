@@ -14,8 +14,8 @@ class InsertionSort {
    */
   run() {
     const sortedArr = [...this.#arr];
-    let i, j, key;
 
+    let i, j, key;
     this.#sorted.push(0);
     this._updateStates(NaN, NaN, [], 0);
     for (i = 1; i < sortedArr.length; i++) {
@@ -39,6 +39,7 @@ class InsertionSort {
       this.#sorted.push(i);
       this._updateStates(NaN, NaN, [], 4);
     }
+
     return sortedArr;
   }
 

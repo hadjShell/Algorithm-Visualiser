@@ -2,7 +2,7 @@ import Node from "./algorithmExecutor/searching/Node.js";
 
 /**
  * Generate a random size array by default with random integer values
- * Array length: [10, 20]
+ * Array length: [10, 15]
  * Item value: [0, 100]
  * @param {Integer} size of generated array
  * @returns {Array}

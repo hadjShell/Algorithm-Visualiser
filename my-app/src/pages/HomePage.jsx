@@ -25,7 +25,7 @@ export default function HomePage() {
         <Card
           img={sortingImg}
           name="Sorting Algorithms"
-          to="sorting/selection-sort"
+          to="sorting/insertion-sort"
         ></Card>
         <Card img={recursionImg} name="Recursion Algorithms"></Card>
       </section>

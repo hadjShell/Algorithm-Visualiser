@@ -23,7 +23,6 @@ class SelectionSort {
         this._updateStates(j, min, [], 1);
         if (sortedArr[j] < sortedArr[min]) {
           min = j;
-          // BUG related to restrict mode
           this._updateStates(min, min, [], 2);
         }
       }
