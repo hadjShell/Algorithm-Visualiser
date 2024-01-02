@@ -7,6 +7,7 @@ export default function InsertionSortPage() {
     <SortPage
       SortItem={InsSortItem}
       createAnimationState={createAnimationState}
+      action="INSERTION"
     ></SortPage>
   );
 }

@@ -95,7 +95,7 @@ export default function ControlPanel({
   }
 
   return (
-    <section id="control-panel" className="pt-12 px-20 pl-24 flex flex-row">
+    <section id="control-panel" className="pt-8 px-20 pl-24 flex flex-row">
       <div className="basis-6/12 pr-8 grid grid-flow-col gap-4 justify-stretch">
         <button
           type="button"

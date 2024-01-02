@@ -1,10 +1,11 @@
 import ControlPanel from "../components/ControlPanel";
 import VisualContainer from "../components/VisualContainer";
 import PseudoCode from "../components/PseudoCode";
+import ItemPartition from "../components/ItemPartition";
 
 import { useState } from "react";
 
-export default function SortPage({ SortItem, createAnimationState }) {
+export default function SortPage({ SortItem, createAnimationState, action }) {
   const [indexOfStates, setIndexOfStates] = useState(0);
   const [state, setState] = useState(createAnimationState());
   // used for resetting control panel
@@ -50,6 +51,12 @@ export default function SortPage({ SortItem, createAnimationState }) {
             state={state.states[indexOfStates]}
           />
         ))}
+        {action === "QUICK" && (
+          <ItemPartition
+            range={state.states[indexOfStates].partitionRange}
+            size={state.originalArray.length}
+          ></ItemPartition>
+        )}
       </VisualContainer>
 
       <PseudoCode

@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <>
       <section id="jumptron">
-        <div className="py-12 pt-20 px-4 mx-auto max-w-screen-xl text-center">
+        <div className="py-2 pt-20 px-4 mx-auto max-w-screen-xl text-center">
           <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl lg:text-7xl dark:text-white">
             Algorithm Visualiser
           </h1>

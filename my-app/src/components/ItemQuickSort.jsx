@@ -19,24 +19,21 @@ export default function SelSortItem({
   const startPos = (WIDTH_OF_VIZ_GRAPH - BAR_WIDTH * size) / 2 - 15;
 
   // Compute item color
-  const isChecking = currentIndex === state.checking;
-  const isExtracting = currentIndex === state.extracting;
+  const isChecking =
+    currentIndex === state.checkingLeft || currentIndex === state.checkingRight;
+  const isPivot = currentIndex === state.pivot;
   const isSwapping = state.swapping.includes(currentIndex);
   const isSorted = state.sorted.includes(currentIndex);
   let color = "rgb(173, 216, 230)";
-  let offset = 0;
-  if (isSorted) color = "rgb(148, 216, 45)";
   if (isChecking) color = "rgb(255, 212, 59)";
+  if (isPivot) color = "rgb(250, 82, 82)";
   if (isSwapping) color = "rgb(132, 94, 247)";
-  if (isExtracting) {
-    color = "rgb(250, 82, 82)";
-    offset = 200;
-  }
+  if (isSorted) color = "rgb(148, 216, 45)";
 
   return (
     <motion.g
       initial={{ x: originalIndex * 50 + startPos, y: 300 }}
-      animate={{ x: currentIndex * 50 + startPos, y: 0 + offset }}
+      animate={{ x: currentIndex * 50 + startPos, y: 0 }}
       transition={{ type: "tween", duration: 0.4 }}
       {...props}
     >

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
-import { WIDTH_OF_VIZ_GRAPH } from "./VisualContainer";
+import {
+  WIDTH_OF_VIZ_GRAPH,
+  BASE_HEIGHT,
+  MAX_HEIGHT,
+  BAR_WIDTH,
+} from "./VisualContainer";
 
-const BASE_HEIGHT = 30,
-  MAX_HEIGHT = 300,
-  BAR_WIDTH = 45;
 export default function SelSortItem({
   state,
   originalIndex,

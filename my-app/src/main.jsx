@@ -6,6 +6,7 @@ import Root from "./pages/Root.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import SelectionSortPage from "./pages/SelectionSortPage.jsx";
 import InsertionSortPage from "./pages/InsertionSortPage.jsx";
+import QuickSortPage from "./pages/QuickSortPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "sorting/selection-sort", element: <SelectionSortPage /> },
       { path: "sorting/insertion-sort", element: <InsertionSortPage /> },
+      { path: "sorting/quick-sort", element: <QuickSortPage /> },
     ],
   },
 ]);

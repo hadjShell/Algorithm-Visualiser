@@ -7,6 +7,7 @@ export default function SelectionSortPage() {
     <SortPage
       SortItem={SelSortItem}
       createAnimationState={createAnimationState}
+      action="SELECTION"
     ></SortPage>
   );
 }

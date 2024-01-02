@@ -6,10 +6,13 @@ export default function HomePage() {
   return (
     <>
       <MainNav />
-      <div className="px-16" id="main-container">
+      <div
+        className="px-16 min-h-[92.5vh] flex flex-col justify-between"
+        id="main-container"
+      >
         <Outlet />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }
