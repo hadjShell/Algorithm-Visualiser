@@ -25,7 +25,7 @@ export function createAlgorithmState(checking, found, range, step) {
  * @param {Boolean} isNew generate new array or not
  * @returns animation state
  */
-export function createAnimationState(key, isNew) {
+export function createAnimationState(key = NaN, isNew = true) {
   if (isNew) {
     const arr = generateArray("ASCENDING");
     binarySearch.arr = [...arr];

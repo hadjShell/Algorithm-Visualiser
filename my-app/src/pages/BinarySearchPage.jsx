@@ -8,7 +8,7 @@ import { createAnimationState } from "../backend/state/searching/BinarySearchSta
 
 export default function BinarySearchPage() {
   const [indexOfStates, setIndexOfStates] = useState(0);
-  const [state, setState] = useState(createAnimationState(NaN, true));
+  const [state, setState] = useState(createAnimationState);
   const [searchKey, setSearchKey] = useState(0);
   // used for resetting control panel
   const [key, setKey] = useState(0);

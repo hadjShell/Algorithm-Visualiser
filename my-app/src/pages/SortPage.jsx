@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function SortPage({ SortItem, createAnimationState, action }) {
   const [indexOfStates, setIndexOfStates] = useState(0);
-  const [state, setState] = useState(createAnimationState());
+  const [state, setState] = useState(createAnimationState);
   // used for resetting control panel
   const [key, setKey] = useState(0);
 
