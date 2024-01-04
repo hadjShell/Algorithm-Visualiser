@@ -1,29 +1,32 @@
 import ControlPanel from "../components/ControlPanel";
 import VisualContainer from "../components/VisualContainer";
 import PseudoCode from "../components/PseudoCode";
-import ItemRange from "../components/ItemRange";
-
+import ItemBinarySearch from "../components/ItemBinarySearch.jsx";
+import ItemRange from "../components/ItemRange.jsx";
 import { useState } from "react";
+import { createAnimationState } from "../backend/state/searching/BinarySearchState.js";
 
-export default function SortPage({ SortItem, createAnimationState, action }) {
+export default function BinarySearchPage() {
   const [indexOfStates, setIndexOfStates] = useState(0);
-  const [state, setState] = useState(createAnimationState());
+  const [state, setState] = useState(createAnimationState(NaN, true));
+  const [searchKey, setSearchKey] = useState(0);
   // used for resetting control panel
   const [key, setKey] = useState(0);
 
-  function handleRandom() {
-    setState(createAnimationState("RANDOM"));
-    setIndexOfStates(0);
-    setKey(prev => prev + 1);
+  function handleInputKey(e) {
+    if (e.key === "Enter") {
+      const key = Number(e.target.value);
+      setState(createAnimationState(key, false));
+      setSearchKey(key);
+      setIndexOfStates(0);
+      setKey(prev => prev + 1);
+    }
   }
 
-  function handleAscending() {
-    setState(createAnimationState("ASCENDING"));
-    setIndexOfStates(0);
-    setKey(prev => prev + 1);
-  }
-  function handleDescending() {
-    setState(createAnimationState("DESCENDING"));
+  // BUG: createAnimationState invoke twice
+  function handleRandom() {
+    setState(createAnimationState(NaN, true));
+    setSearchKey(0);
     setIndexOfStates(0);
     setKey(prev => prev + 1);
   }
@@ -35,15 +38,15 @@ export default function SortPage({ SortItem, createAnimationState, action }) {
         indexOfStates={indexOfStates}
         setIndexOfStates={setIndexOfStates}
         size={state.states.length}
+        searchKey={searchKey}
+        handleInputKey={handleInputKey}
         handleRandom={handleRandom}
-        handleAscending={handleAscending}
-        handleDescending={handleDescending}
-        action="SORTING"
+        action="SEARCHING"
       />
 
       <VisualContainer>
         {state.originalArray.map((value, i) => (
-          <SortItem
+          <ItemBinarySearch
             key={state.key[i]}
             originalIndex={i}
             value={value}
@@ -52,12 +55,10 @@ export default function SortPage({ SortItem, createAnimationState, action }) {
             state={state.states[indexOfStates]}
           />
         ))}
-        {action === "QUICK" && (
-          <ItemRange
-            range={state.states[indexOfStates].partitionRange}
-            size={state.originalArray.length}
-          ></ItemRange>
-        )}
+        <ItemRange
+          range={state.states[indexOfStates].range}
+          size={state.originalArray.length}
+        ></ItemRange>
       </VisualContainer>
 
       <PseudoCode

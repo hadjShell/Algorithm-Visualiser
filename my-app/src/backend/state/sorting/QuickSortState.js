@@ -4,13 +4,14 @@ import { generateArray } from "../../helper.js";
 /**
  *
  * @param {Array of Integer} partitionRange the range of partition, size of 2
- * @param {*} pivot the index of pivot
- * @param {*} checkingLeft the index of left pointer in the partition
- * @param {*} checkingRight the index of right pointer in the partition
- * @param {*} swapping the indexes of current swapping elements, size of 2
+ * @param {Integer} pivot the index of pivot
+ * @param {Integer} checkingLeft the index of left pointer in the partition
+ * @param {Integer} checkingRight the index of right pointer in the partition
+ * @param {Array of Integer} swapping the indexes of current swapping elements, size of 2
  * @param {Array of Integer} sorted array of sorted indexs
  * @param {Array of Integer} currentIndex current index of the original element
- * @param {*} step the index of current executed pseudo-code step
+ * @param {Integer} step the index of current executed pseudo-code step
+ * @returns {Object} algorithm execution state
  */
 export function createAlgorithmState(
   partitionRange,
@@ -35,7 +36,7 @@ export function createAlgorithmState(
 }
 
 /**
- * Create selection sort animation state
+ * Create quick sort animation state
  * API exposed to the front end
  * @param {String} action
  * @returns animation state

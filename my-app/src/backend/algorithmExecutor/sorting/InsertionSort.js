@@ -18,6 +18,7 @@ class InsertionSort {
     let i, j, key;
     this.#sorted.push(0);
     this._updateStates(NaN, NaN, [], 0);
+    
     for (i = 1; i < sortedArr.length; i++) {
       key = sortedArr[i];
       this._updateStates(NaN, i, [], 1);

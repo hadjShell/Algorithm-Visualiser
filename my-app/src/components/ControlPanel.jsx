@@ -12,9 +12,12 @@ export default function ControlPanel({
   indexOfStates,
   setIndexOfStates,
   size,
+  searchKey,
   handleRandom,
   handleAscending,
   handleDescending,
+  handleInputKey,
+  action,
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(BASIC_SPEED);
@@ -104,20 +107,37 @@ export default function ControlPanel({
         >
           Random
         </button>
-        <button
-          type="button"
-          className="text-gray-800 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-          onClick={handleAscending}
-        >
-          Ascending
-        </button>
-        <button
-          type="button"
-          className="text-gray-800 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-          onClick={handleDescending}
-        >
-          Descending
-        </button>
+        {action === "SORTING" ? (
+          <>
+            <button
+              type="button"
+              className="text-gray-800 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              onClick={handleAscending}
+            >
+              Ascending
+            </button>
+            <button
+              type="button"
+              className="text-gray-800 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              onClick={handleDescending}
+            >
+              Descending
+            </button>
+          </>
+        ) : (
+          <>
+            <input
+              type="number"
+              id="number-input"
+              aria-describedby="helper-text-explanation"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder={searchKey}
+              onKeyDown={handleInputKey}
+              required
+            />
+          </>
+        )}
+
         <select
           id="speed"
           name="speed"

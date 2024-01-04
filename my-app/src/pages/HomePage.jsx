@@ -21,7 +21,11 @@ export default function HomePage() {
         id="cards"
         className="px-16 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 content-center"
       >
-        <Card img={searchingImg} name="Searching Algorithms" to=""></Card>
+        <Card
+          img={searchingImg}
+          name="Searching Algorithms"
+          to="searching/binary-search"
+        ></Card>
         <Card
           img={sortingImg}
           name="Sorting Algorithms"

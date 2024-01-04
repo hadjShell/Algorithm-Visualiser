@@ -148,6 +148,3 @@ class QuickSort {
 
 const quickSort = new QuickSort();
 export default quickSort;
-
-quickSort.arr = [3, 2, 5];
-console.log(quickSort.run());
