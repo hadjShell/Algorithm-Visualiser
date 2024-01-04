@@ -8,11 +8,13 @@ import SelectionSortPage from "./pages/SelectionSortPage.jsx";
 import InsertionSortPage from "./pages/InsertionSortPage.jsx";
 import QuickSortPage from "./pages/QuickSortPage.jsx";
 import BinarySearchPage from "./pages/BinarySearchPage.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
       { path: "searching/binary-search", element: <BinarySearchPage /> },
