@@ -29,7 +29,6 @@ export function createAnimationState(key = NaN, isNew = true) {
   if (isNew) {
     const arr = generateArray("ASCENDING");
     binarySearch.arr = [...arr];
-    console.log(binarySearch.arr);
   } else {
     binarySearch.arr = [...binarySearch.arr];
   }

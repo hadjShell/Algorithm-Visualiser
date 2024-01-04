@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-export default function Card({ img, name, to }) {
+export default function Card({ img, name, to, onClick }) {
   return (
     <div className="flex justify-center">
       <motion.div
         className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
+        onClick={onClick}
       >
         <Link to={to}>
           <img

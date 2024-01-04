@@ -2,8 +2,11 @@ import Card from "../components/UI/Card";
 import sortingImg from "../assets/sort_records.png";
 import searchingImg from "../assets/search_text.png";
 import recursionImg from "../assets/recursion_spiral_stairs.png";
+import { useOutletContext } from "react-router-dom";
 
 export default function HomePage() {
+  const setNav = useOutletContext()[1];
+
   return (
     <>
       <section id="jumptron">
@@ -25,13 +28,20 @@ export default function HomePage() {
           img={searchingImg}
           name="Searching Algorithms"
           to="searching/binary-search"
+          onClick={() => setNav("SEARCHING")}
         ></Card>
         <Card
           img={sortingImg}
           name="Sorting Algorithms"
           to="sorting/insertion-sort"
+          onClick={() => setNav("SORTING")}
         ></Card>
-        <Card img={recursionImg} name="Recursion Algorithms"></Card>
+        <Card
+          img={recursionImg}
+          name="Recursion Algorithms"
+          to="searching/binary-search"
+          onClick={() => setNav("RECURSION")}
+        ></Card>
       </section>
     </>
   );
