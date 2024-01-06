@@ -6,7 +6,7 @@ import {
   BAR_WIDTH,
 } from "./VisualContainer";
 
-export default function SelSortItem({
+export default function QuickSortItem({
   state,
   originalIndex,
   value,

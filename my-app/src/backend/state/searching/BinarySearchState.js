@@ -19,7 +19,7 @@ export function createAlgorithmState(checking, found, range, step) {
 }
 
 /**
- * Create selection sort animation state
+ * Create binary search animation state
  * API exposed to the front end
  * @param {Integer} key value to be searched
  * @param {Boolean} isNew generate new array or not

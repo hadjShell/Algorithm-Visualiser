@@ -39,13 +39,15 @@ export function generateArray(action = "DEFAULT") {
  */
 export function generateRandomBST() {
   const arr = generateRandomArray();
-  // -1 will always less than the value in the arr
-  const fakeRoot = new Node(-1);
+  // 101 will always greater than the value in the arr
+  const fakeRoot = new Node(100);
 
   arr.forEach(e => {
     let cur = fakeRoot;
     let prev = cur;
     let point = -1; // to left: 0 or to right: 1
+    let row = 0,
+      col = 0;
     const node = new Node(e);
 
     while (cur) {
@@ -53,14 +55,21 @@ export function generateRandomBST() {
       if (node.data < cur.data) {
         cur = cur.left;
         point = 0;
+        row++;
+        col = col * 2;
       } else if (node.data > cur.data) {
         cur = cur.right;
         point = 1;
+        row++;
+        col = col * 2 + 1;
       } else {
         point = -1;
         cur = null;
       }
     }
+
+    node.row = row - 1;
+    node.col = col;
 
     switch (point) {
       case 0: {
@@ -76,7 +85,7 @@ export function generateRandomBST() {
     }
   });
 
-  return fakeRoot.right;
+  return fakeRoot.left;
 }
 
 /**
@@ -87,22 +96,4 @@ export function generateRandomBST() {
  */
 function randomInteger(start, end) {
   return Math.floor(Math.random() * (end - start + 1)) + start;
-}
-
-/**
- * Print out BST in order
- * @param {Node} root root node of BST
- */
-export function printBST(root) {
-  const arr = [];
-  function traversal(node) {
-    if (node) {
-      traversal(node.left);
-      arr.push(node.data);
-      traversal(node.right);
-    }
-  }
-
-  traversal(root);
-  console.log(arr.join(" -> "));
 }
