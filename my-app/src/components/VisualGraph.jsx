@@ -3,7 +3,7 @@ export const WIDTH_OF_VIZ_GRAPH = 1000,
   MAX_HEIGHT = 300,
   BAR_WIDTH = 45;
 
-export default function VisualContainer({ children }) {
+export default function VisualGraph({ children }) {
   return (
     <section id="viz" className="w-full flex flex-row justify-center">
       <svg

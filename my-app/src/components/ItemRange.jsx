@@ -1,4 +1,4 @@
-import { WIDTH_OF_VIZ_GRAPH, BAR_WIDTH } from "./VisualContainer";
+import { WIDTH_OF_VIZ_GRAPH, BAR_WIDTH } from "./VisualGraph";
 
 export default function ItemRange({ range, size, ...props }) {
   const startPos = (WIDTH_OF_VIZ_GRAPH - BAR_WIDTH * size) / 2 - 17;

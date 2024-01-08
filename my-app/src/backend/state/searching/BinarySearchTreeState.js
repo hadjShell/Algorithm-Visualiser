@@ -46,8 +46,9 @@ export function createAnimationState(key = NaN, isNew = true) {
 }
 
 /**
- * Traversal BST in order and pack metadata
+ * Traversal BST in order and create node state objects
  * @param {Node} root root node of BST
+ * @returns {Object} a list of node states and level of tree
  */
 function traversalBST(root) {
   const tree = [];

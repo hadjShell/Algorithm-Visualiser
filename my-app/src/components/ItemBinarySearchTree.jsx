@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { WIDTH_OF_VIZ_GRAPH } from "./VisualContainer";
+import { WIDTH_OF_VIZ_GRAPH } from "./VisualGraph";
 
 export default function BinarySearchTreeItem({
   state,

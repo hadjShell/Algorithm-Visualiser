@@ -1,5 +1,5 @@
 import ControlPanel from "../components/ControlPanel";
-import VisualContainer from "../components/VisualContainer";
+import VisualGraph from "../components/VisualGraph";
 import PseudoCode from "../components/PseudoCode";
 import ItemBinarySearchTree from "../components/ItemBinarySearchTree.jsx";
 import { useState } from "react";
@@ -42,7 +42,7 @@ export default function BinarySearchTreePage() {
         action="SEARCHING"
       />
 
-      <VisualContainer>
+      <VisualGraph>
         {state.originalTree.map((node, i) => (
           <ItemBinarySearchTree
             key={state.key[i]}
@@ -55,7 +55,7 @@ export default function BinarySearchTreePage() {
             state={state.states[indexOfStates]}
           />
         ))}
-      </VisualContainer>
+      </VisualGraph>
 
       <PseudoCode
         pseudoCode={state.pseudoCode}

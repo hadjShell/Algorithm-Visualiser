@@ -1,5 +1,5 @@
 import ControlPanel from "../components/ControlPanel";
-import VisualContainer from "../components/VisualContainer";
+import VisualGraph from "../components/VisualGraph";
 import PseudoCode from "../components/PseudoCode";
 import ItemBinarySearch from "../components/ItemBinarySearch.jsx";
 import ItemRange from "../components/ItemRange.jsx";
@@ -23,7 +23,6 @@ export default function BinarySearchPage() {
     }
   }
 
-  // BUG: createAnimationState invoke twice
   function handleRandom() {
     setState(createAnimationState(NaN, true));
     setSearchKey(0);
@@ -44,7 +43,7 @@ export default function BinarySearchPage() {
         action="SEARCHING"
       />
 
-      <VisualContainer>
+      <VisualGraph>
         {state.originalArray.map((value, i) => (
           <ItemBinarySearch
             key={state.key[i]}
@@ -59,7 +58,7 @@ export default function BinarySearchPage() {
           range={state.states[indexOfStates].range}
           size={state.originalArray.length}
         ></ItemRange>
-      </VisualContainer>
+      </VisualGraph>
 
       <PseudoCode
         pseudoCode={state.pseudoCode}

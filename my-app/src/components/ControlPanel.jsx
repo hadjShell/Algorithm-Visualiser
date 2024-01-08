@@ -53,7 +53,6 @@ export default function ControlPanel({
     if (indexOfStates < size - 1) {
       setIsPlaying(true);
       timeId.current = setInterval(() => {
-        console.log(1);
         setIndexOfStates(prev => prev + 1);
       }, speed * 1000);
     }

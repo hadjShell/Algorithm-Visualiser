@@ -4,7 +4,7 @@ import {
   BASE_HEIGHT,
   MAX_HEIGHT,
   BAR_WIDTH,
-} from "./VisualContainer";
+} from "./VisualGraph";
 
 export default function SelSortItem({
   state,

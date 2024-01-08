@@ -1,5 +1,5 @@
 import ControlPanel from "../components/ControlPanel";
-import VisualContainer from "../components/VisualContainer";
+import VisualGraph from "../components/VisualGraph";
 import PseudoCode from "../components/PseudoCode";
 import ItemRange from "../components/ItemRange";
 
@@ -41,7 +41,7 @@ export default function SortPage({ SortItem, createAnimationState, action }) {
         action="SORTING"
       />
 
-      <VisualContainer>
+      <VisualGraph>
         {state.originalArray.map((value, i) => (
           <SortItem
             key={state.key[i]}
@@ -58,7 +58,7 @@ export default function SortPage({ SortItem, createAnimationState, action }) {
             size={state.originalArray.length}
           ></ItemRange>
         )}
-      </VisualContainer>
+      </VisualGraph>
 
       <PseudoCode
         pseudoCode={state.pseudoCode}
