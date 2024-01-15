@@ -8,6 +8,10 @@ export default function Root() {
 
   useEffect(() => {
     setNav(localStorage.getItem("nav"));
+    return () => {
+      setNav("");
+      localStorage.removeItem("nav");
+    };
   }, []);
 
   useEffect(() => {
